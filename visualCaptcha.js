@@ -164,12 +164,12 @@ visualCaptcha = {
                     mimeType = mime.getType( audioFilePath );
 
                     // Set the appropriate mime type
-                    response.set( 'content-type', mimeType );
+                    response.setHeader( 'content-type', mimeType );
 
                     // Make sure this is not cached
-                    response.set( 'cache-control', 'no-cache, no-store, must-revalidate' );
-                    response.set( 'pragma', 'no-cache' );
-                    response.set( 'expires', 0 );
+                    response.setHeader( 'cache-control', 'no-cache, no-store, must-revalidate' );
+                    response.setHeader( 'pragma', 'no-cache' );
+                    response.setHeader( 'expires', 0 );
 
                     stream = fs.createReadStream( audioFilePath );
                     var responseData = [];
@@ -187,19 +187,21 @@ visualCaptcha = {
                                 // Add some noise randomly, so audio files can't be saved and matched easily by filesize or checksum
                                 var noiseData = crypto.randomBytes(Math.round((Math.random() * 1999)) + 501).toString('hex');
                                 response.write( noiseData );
-
                                 response.end();
                             }
                         });
                     } else {
-                        response.status( 404 ).send( 'Not Found' );
+                        response.statusCode = 404;
+                        response.end('Not Found');
                     }
                 } else {
-                    response.status( 404 ).send( 'Not Found' );
+                    response.statusCode = 404;
+                    response.end('Not Found');
                 }
             });
         } else {
-            response.status( 404 ).send( 'Not Found' );
+            response.statusCode = 404;
+            response.end('Not Found');
         }
     },
 
@@ -236,12 +238,12 @@ visualCaptcha = {
                     mimeType = mime.getType( imageFilePath );
 
                     // Set the appropriate mime type
-                    response.set( 'content-type', mimeType );
+                    response.setHeader( 'content-type', mimeType );
 
                     // Make sure this is not cached
-                    response.set( 'cache-control', 'no-cache, no-store, must-revalidate' );
-                    response.set( 'pragma', 'no-cache' );
-                    response.set( 'expires', 0 );
+                    response.setHeader( 'cache-control', 'no-cache, no-store, must-revalidate' );
+                    response.setHeader( 'pragma', 'no-cache' );
+                    response.setHeader( 'expires', 0 );
 
                     stream = fs.createReadStream( imageFilePath );
                     var responseData = [];
@@ -259,19 +261,21 @@ visualCaptcha = {
                                 // Add some noise randomly, so images can't be saved and matched easily by filesize or checksum
                                 var noiseData = crypto.randomBytes(Math.round((Math.random() * 1999)) + 501).toString('hex');
                                 response.write( noiseData );
-
                                 response.end();
                             }
                         });
                     } else {
-                        response.status( 404 ).send( 'Not Found' );
+                        response.statusCode = 404;
+                        response.end('Not Found');
                     }
                 } else {
-                    response.status( 404 ).send( 'Not Found' );
+                    response.statusCode = 404;
+                    response.end('Not Found');
                 }
             });
         } else {
-            response.status( 404 ).send( 'Not Found' );
+            response.statusCode = 404;
+            response.end('Not Found');
         }
 
 
