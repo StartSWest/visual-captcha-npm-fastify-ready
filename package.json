@@ -1,20 +1,20 @@
 {
   "version": "1.0.0",
-  "name": "visualcaptcha",
-  "description": "Node.js module for visualCaptcha. Still requires you to have the front-end companion.",
+  "name": "visual-captcha-npm-fastify-ready",
+  "description": "Fork of visualCaptcha-npm's Bruno Bernardino <me@brunobernardino.com> https://www.npmjs.com/package/visualcaptcha modified to be fastify webserver ready!",
   "keywords": [
     "captcha",
     "visualCaptcha",
-    "security"
+    "security",
+    "fastify"
   ],
-  "homepage": "http://visualcaptcha.net",
   "author": {
-    "name": "Bruno Bernardino",
-    "email": "me@brunobernardino.com"
+    "name": "Ivan Carmenates García",
+    "email": "ivancarmenates@gmail.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/emotionLoop/visualCaptcha-npm"
+    "url": "https://github.com/StartSWest/visual-captcha-npm-fastify-ready"
   },
   "dependencies": {
     "mime": "2.2.x",
